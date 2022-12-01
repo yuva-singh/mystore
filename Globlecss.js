@@ -1,0 +1,2 @@
+
+let primary = "text-primary"
