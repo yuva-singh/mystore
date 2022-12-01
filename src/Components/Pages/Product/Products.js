@@ -1,6 +1,5 @@
 import React from 'react'
 import FeatureProduct from '../Featured/FeaturedProducts'
-import Product from '../Featured/Product'
 import FilterSection from './FilterSection'
 import ProductList from './ProductList'
 import Sort from './Sort'
