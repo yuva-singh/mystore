@@ -6,7 +6,7 @@ function Product(curElem) {
   const { id, name, image, price, category } = curElem;
   return (
     <>
-      <div className="col-lg-4">
+      <div className="col-lg-4 py-2">
         <div className="position-relative">
           <Link to={`/singleproduct/${id}`}>
             <img src={image} className="img-fluid rounded-3" alt="img" />
@@ -15,7 +15,7 @@ function Product(curElem) {
             </figcaption>
             <body className="d-flex justify-content-between py-2 px-3">
               <h5>{name}</h5>
-              <p><FormatPrice price = {price}/></p>
+              <p><FormatPrice price={price} /></p>
             </body>
           </Link>
         </div>

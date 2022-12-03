@@ -9,7 +9,6 @@ function Addtocart({ Product }) {
   const [amount ,setamount] = useState(1)
   let setDecrease = ()=>{
         amount > 1 ? setamount(amount -1):setamount(1);
-        console.log("hello")
   }
   let setIncrease = ()=>{
       amount < stock ? setamount(amount + 1): setamount(stock);
