@@ -34,7 +34,7 @@ const SingleProduct = () => {
   if (isSingleLoading) {
     return (
       <div className="text-center">
-        <h3>...Loading</h3>
+        <h6>...Loading</h6>
       </div>
     );
   }

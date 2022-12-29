@@ -2,10 +2,8 @@ import React from 'react'
 import FilterSection from './FilterSection'
 import ProductList from './ProductList'
 import Sort from './Sort'
-// import {useFilterContext} from '../../Context/FilterContext'
 
 function Products() {
-  // const {FILTER_PRODUCTS} = useFilterContext();
   return (
     <>
       <div className="container py-3">

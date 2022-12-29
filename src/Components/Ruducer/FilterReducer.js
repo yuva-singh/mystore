@@ -10,8 +10,13 @@ function FilterReducer(state, action) {
             return {
                 ...state,
                 GRID_VIEW: true,
+            };
+            
+            case "SET_LIST_VIEW":
+            return {
+                ...state,
+                GRID_VIEW: false,
             }
-
         default: return state;
     };
 }
