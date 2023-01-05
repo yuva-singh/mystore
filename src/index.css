@@ -30,3 +30,6 @@ a{
 .btnactive{
   opacity:1;
 }
+.form-select{
+  box-shadow: none !important;
+}

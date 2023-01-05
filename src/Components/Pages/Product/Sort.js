@@ -2,7 +2,8 @@ import React from "react";
 import { useFilterContext } from "../../Context/FilterContext";
 
 function Sort() {
-  const { FILTER_PRODUCTS,GRID_VIEW, setGridView,setListView } = useFilterContext();
+  const { FILTER_PRODUCTS, GRID_VIEW, setGridView, setListView, sorting } =
+    useFilterContext();
   return (
     <>
       <div className="d-flex justify-content-between">
@@ -28,33 +29,13 @@ function Sort() {
           <p> {FILTER_PRODUCTS.length} Product Available</p>
         </div>
         <div>
-          <div class="btn-group">
-            <button
-              class="btn btn-light btn-sm dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Filter
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-            </ul>
-          </div>
+          <select class="form-select" id="sort" onClick={sorting}>
+            <option value="All">All</option>
+            <option value="a-z">Price (a to z)</option>
+            <option value="lowest">Price (low to high)</option>
+            <option value="Highest">Price (Hight to low)</option>
+            <option value="z-a">Price (z to a)</option>
+          </select>
         </div>
       </div>
     </>

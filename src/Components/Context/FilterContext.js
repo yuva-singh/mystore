@@ -1,12 +1,13 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useProductContext } from "./ProductContect";
-import reducer from '../Ruducer/FilterReducer'
+import reducer from '../Reducer/FilterReducer'
 
 const FilterContext = createContext();
 const initialState = {
     FILTER_PRODUCTS: [],
     ALL_PRODUCTS: [],
-    GRID_VIEW: false
+    GRID_VIEW: true,
+    SORTING_VALUE: "lowest",
 }
 
 export const FilterContextProvider = ({ children }) => {
@@ -20,11 +21,21 @@ export const FilterContextProvider = ({ children }) => {
     const setListView = () => {
         return dispatch({ type: "SET_LIST_VIEW" });
     }
+    // sorting function
+    const sorting = (event) => {
+        let userValue = event.target.value;
+        return dispatch({ type: "SET_SORT_VALUE", payload:userValue})
+    };
+
+    useEffect(() => {
+        dispatch({ type: "SORTING_PRODUCTS"})
+    }, [state.SORTING_VALUE])
+
 
     useEffect(() => {
         dispatch({ type: "LOAD_FILTER_PRODUCT", payload: products })
     }, [products]);
-    return <FilterContext.Provider value={{ ...state, setGridView,setListView }}>
+    return <FilterContext.Provider value={{ ...state, setGridView, setListView, sorting }}>
         {children}
     </FilterContext.Provider>
 }
