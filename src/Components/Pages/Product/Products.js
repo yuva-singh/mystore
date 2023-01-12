@@ -7,8 +7,8 @@ function Products() {
   return (
     <>
       <div className="container py-3">
-        <div className="row justify-content-center">
-          <div className="col-lg-3">
+        <div className="row justify-content-between">
+          <div className="col-lg-2">
             <FilterSection />
           </div>
           <div className="col-lg-9">

@@ -9,7 +9,7 @@ function Home() {
     <Herosection
      welcome ={"WELCOME TO"}
      content={"MYSTORE"}
-     imgs={"banner.jpg"}
+     imgs={"about.jpg"}
      pragraph ={"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque enim harum non quidem vitae necessitatibus quos veritatis. Vitae rem delectus placeat eligendi tenetur cum deserunt, suscipit repellendus, nam eos dolore."}
      Button = {"VISIT SHOP"}
      />

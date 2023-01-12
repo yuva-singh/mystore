@@ -7,7 +7,7 @@ function About() {
       <Herosection
       welcome = "WELCOME TO"
      content={"About"}
-     imgs={"banner.jpg"}
+     imgs={"banner.webp"}
      pragraph ={"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque enim harum non quidem vitae necessitatibus quos veritatis. Vitae rem delectus placeat eligendi tenetur cum deserunt, suscipit repellendus, nam eos dolore."}
      Button = {"VISIT SHOP"}
      />

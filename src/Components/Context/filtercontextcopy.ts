@@ -12,7 +12,7 @@ const initialState = {
         text: "",
         category:"all",
         company:"all",
-        color:"all",
+        color:"all"
     }
 }
 
@@ -33,10 +33,6 @@ export const FilterContextProvider = ({ children }) => {
         return dispatch({ type: "SET_SORT_VALUE", payload: userValue })
     };
 
-    useEffect(() => {
-        dispatch({ type: "SORTING_PRODUCTS" })
-    }, [state.SORTING_VALUE])
-
     const UpdateFilterValue = (event) => {
         let name = event.target.name;
         let value = event.target.value
@@ -44,9 +40,9 @@ export const FilterContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        dispatch({ type: "Update-Filter_Product" })
+        dispatch({type:"Update-Filter_Product"})
         dispatch({ type: "SORTING_PRODUCTS" })
-    }, [state.SORTING_VALUE, state.Filters])
+    }, [state.SORTING_VALUE,state.Filters])
 
 
     useEffect(() => {

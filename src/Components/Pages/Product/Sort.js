@@ -29,7 +29,7 @@ function Sort() {
           <p> {FILTER_PRODUCTS.length} Product Available</p>
         </div>
         <div>
-          <select class="form-select" id="sort" onClick={sorting}>
+          <select className="form-select" id="sort" onClick={sorting}>
             <option value="All">All</option>
             <option value="a-z">Price (a to z)</option>
             <option value="lowest">Price (low to high)</option>

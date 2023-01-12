@@ -42,16 +42,13 @@ function FilterReducer(state, action) {
                 if (SORTING_VALUE === "z-a") {
                     return b.name.localeCompare(a.name)
                 }
-                // if (state.SORTING_VALUE === "All") {
-                //     return newSortData = TempSortData;
-                //  };
-
             }
             newSortData = TempSortData.sort(sortingProducts);
             return {
                 ...state,
                 FILTER_PRODUCTS: newSortData,
             }
+
         case "Update-Filter-Value":
             const { name, value } = action.payload;
             return {
@@ -64,27 +61,25 @@ function FilterReducer(state, action) {
         case "Update-Filter_Product":
             let { ALL_PRODUCTS } = state;
             let SearchFilterProduct = [...ALL_PRODUCTS];
-            const { text, category, company, color } = state.Filters;
+            const { text, category, company,color } = state.Filters;
             if (text) {
                 SearchFilterProduct = SearchFilterProduct.filter((currentElement) => {
                     return currentElement.name.toLowerCase().includes(text);
                 })
             }
-            if (category !== "all") {
+            if (category !== "All") {
                 SearchFilterProduct = SearchFilterProduct.filter((currentElement) => {
                     return currentElement.category === category;
                 })
             }
-
-            if (company !== "all") {
+            if (company !== "All") {
                 SearchFilterProduct = SearchFilterProduct.filter((currentElement) => {
                     return currentElement.company === company;
                 })
             }
-
-            if (color !== "all") {
+            if (color) {
                 SearchFilterProduct = SearchFilterProduct.filter((currentElement) => {
-                    return currentElement.colors.includes(color);
+                    return currentElement.color.includes(color);
                 })
             }
             return {

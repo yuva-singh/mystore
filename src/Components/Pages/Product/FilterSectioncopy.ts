@@ -15,27 +15,27 @@ function FilterSection() {
     if (property === "colors") {
       NewValue = NewValue.flat();
     }
-    return (NewValue = ["all", ...new Set(NewValue)]);
+    return (NewValue = ["All", ...new Set(NewValue)]);
   };
   //unique data
   const categoryFilterData = getUniqueData(ALL_PRODUCTS, "category");
   const CompanyFilterData = getUniqueData(ALL_PRODUCTS, "company");
   const ColorFilterData = getUniqueData(ALL_PRODUCTS, "colors");
+  console.log(ColorFilterData)
 
   return (
     <>
-      <section>
-        <form action="" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search"
-            name="text"
-            value={text}
-            onChange={UpdateFilterValue}
-          />
-        </form>
-      </section>
+      <form action="" onSubmit={(e) => e.preventDefault()}>
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search"
+          name="text"
+          value={text}
+          onChange={UpdateFilterValue}
+        />
+      </form>
+
       <section className="my-3">
         <h6>Category</h6>
         {categoryFilterData.map((data, index) => {
@@ -57,52 +57,37 @@ function FilterSection() {
       <section>
         <h6>Company</h6>
         <select
-          name="company"
-          onClick={UpdateFilterValue}
           className="form-select"
+          onClick={UpdateFilterValue}
+          name="company"
         >
-          {CompanyFilterData.map((data, index) => {
+          {CompanyFilterData.map((companyName, indexValue) => {
             return (
-              <option key={index} value={data} name="company">
-                {data.toUpperCase()}
+              <option key={indexValue} value={companyName} name="company">
+                {companyName}
               </option>
             );
           })}
         </select>
       </section>
-
       <section className="my-3 ">
         <h6>Color</h6>
         <div className="d-flex">
           {ColorFilterData.map((data, index) => {
-            if (data === "all") {
-              return (
-                <button
-                  key={index}
-                  type="button"
-                  value={data}
-                  name="color"
-                  className="filterButton"
-                  onClick={UpdateFilterValue}
-                >
-                  All
-                </button>
-              );
-            }
+                                console.log(data)
             return (
-              <button
+              <div
                 key={index}
-                type="button"
-                value={data}
+                className="btnstyle"
                 name="color"
-                style={{ backgroundColor: data }}
-                className={color === data ?  "btnstyle btnactive" : "btnstyle"}
+                value={data}
                 onClick={UpdateFilterValue}
+                style={{ backgroundColor: data }}
               >
                 {color === data ? (
                   <span className="bi bi-check-lg text-white text-center" />
                 ) : null}
-              </button>
+              </div>
             );
           })}
         </div>

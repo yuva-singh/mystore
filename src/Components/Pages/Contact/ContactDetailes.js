@@ -1,6 +1,15 @@
 import "./Contact.css";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function ContactDetailes() {
+  const history = useNavigate();
+
+  const mailSubmit = () => {
+     setTimeout(() => {
+      history('/')
+     },2000);
+  }
   return (
     <>
       <div className="container my-3">
@@ -12,7 +21,7 @@ function ContactDetailes() {
           </div>
           <div className="col-lg-5">
             <h4>Contact Form</h4>
-            <form action="https://formspree.io/f/xlevvgra" method="post">
+            <form action="https://formspree.io/f/xlevvgra" method="post" onSubmit={mailSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputName" className="form-label">
                   Name

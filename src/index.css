@@ -33,3 +33,7 @@ a{
 .form-select{
   box-shadow: none !important;
 }
+.filterButton{
+  border: none !important;
+  background: none;
+}
