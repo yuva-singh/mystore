@@ -1,11 +1,13 @@
 import React from "react";
 import { useFilterContext } from "../../Context/FilterContext";
+import FormatPrice from "../../FormatPrice/FormatPrice";
 
 function FilterSection() {
   const {
-    Filters: { text, color },
+    Filters: { text, color, price, maxPrice, minPrice },
     ALL_PRODUCTS,
     UpdateFilterValue,
+    clearFilters
   } = useFilterContext();
   // get filter unique data
   const getUniqueData = (data, property) => {
@@ -37,7 +39,7 @@ function FilterSection() {
         </form>
       </section>
       <section className="my-3">
-        <h6>Category</h6>
+        <h5>Category</h5>
         {categoryFilterData.map((data, index) => {
           return (
             <p key={index}>
@@ -55,7 +57,7 @@ function FilterSection() {
         })}
       </section>
       <section>
-        <h6>Company</h6>
+        <h5>Company</h5>
         <select
           name="company"
           onClick={UpdateFilterValue}
@@ -70,9 +72,8 @@ function FilterSection() {
           })}
         </select>
       </section>
-
       <section className="my-3 ">
-        <h6>Color</h6>
+        <h5>Color</h5>
         <div className="d-flex">
           {ColorFilterData.map((data, index) => {
             if (data === "all") {
@@ -96,7 +97,7 @@ function FilterSection() {
                 value={data}
                 name="color"
                 style={{ backgroundColor: data }}
-                className={color === data ?  "btnstyle btnactive" : "btnstyle"}
+                className={color === data ? "btnstyle btnactive" : "btnstyle"}
                 onClick={UpdateFilterValue}
               >
                 {color === data ? (
@@ -106,6 +107,27 @@ function FilterSection() {
             );
           })}
         </div>
+      </section>
+      <section>
+        <div className="my-3">
+          <h5>Price</h5>
+          <div>
+            <FormatPrice price={price} />
+          </div>
+          <input
+            type="range"
+            name="price"
+            min={minPrice}
+            max={maxPrice}
+            value={price}
+            onChange={UpdateFilterValue}
+          />
+        </div>
+      </section>
+      <section className="my-3">
+        <button className="btn btn-danger" onClick={clearFilters}>
+          Clear
+        </button>
       </section>
     </>
   );
