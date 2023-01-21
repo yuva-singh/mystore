@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemQuantity from "./ItemQuantity";
+import { useCartContext } from "../../Context/CartContext";
 
 
 function Addtocart({ Product }) {
+  const {addToCart}= useCartContext();
   const { id, colors, stock } = Product;
   const [color, setcolor] = useState(colors);
-  const [amount ,setamount] = useState(1)
-  let setDecrease = ()=>{
-        amount > 1 ? setamount(amount -1):setamount(1);
+  const [amount, setamount] = useState(1)
+  let setDecrease = () => {
+    amount > 1 ? setamount(amount - 1) : setamount(1);
   }
-  let setIncrease = ()=>{
-      amount < stock ? setamount(amount + 1): setamount(stock);
+  let setIncrease = () => {
+    amount < stock ? setamount(amount + 1) : setamount(stock);
   }
   return (
     <>
@@ -38,7 +40,7 @@ function Addtocart({ Product }) {
         setDecrease={setDecrease}
         setIncrease={setIncrease}
       />
-      <Link to="/cart">
+      <Link to="/cart" onClick={() => addToCart(id, color, amount, Product)}>
         <button className="btn btn-dark">ADD TO CARD</button>
       </Link>
     </>

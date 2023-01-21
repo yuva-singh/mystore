@@ -5,15 +5,18 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { AppProvider } from './Components/Context/ProductContect';
 import { FilterContextProvider } from './Components/Context/FilterContext';
+import { CartProvider } from './Components/Context/CartContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppProvider>
     <FilterContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartProvider>
     </FilterContextProvider>
   </AppProvider>
 );
